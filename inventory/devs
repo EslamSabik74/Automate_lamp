@@ -1,0 +1,5 @@
+[webservers]
+192.168.80.110 ansible_user=root ansible_ssh_pass=123 ansible_become=true
+
+[dbservers]
+192.168.80.128 ansible_user=root ansible_ssh_pass=123 ansible_become=true

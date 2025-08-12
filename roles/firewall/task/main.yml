@@ -1,0 +1,20 @@
+    - name: Configure UFW
+      block:
+        - name: install ufw
+          yum:
+            name: ufw
+            state: present
+            update_cache: yes
+        - name: allow HTTP (80)
+          ufw:
+            rule: allow
+            port: "80"
+            proto: tcp
+        - name: allow HTTPS (443)
+          ufw:
+            rule: allow
+            port: "443"
+            proto: tcp
+        - name: enable ufw
+          ufw:
+            state: enabled

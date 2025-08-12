@@ -1,0 +1,11 @@
+---
+- name: configure LAMP stack
+  hosts: all
+  become: yes
+#  vars_files:
+#    - group_vars/all.yml
+  roles:
+    - apache
+    - php
+    - mysql
+    - firewall

@@ -1,0 +1,13 @@
+
+    - name: sample index.php
+      block:
+        - copy:
+            dest: /var/www/html/index.php
+            content: "<?php phpinfo(); ?>"
+          notify: restart apache
+      rescue:
+        - debug:
+            msg: "Failed to copy PHP file"
+      always:
+        - debug:
+            msg: "Deployment block finished"

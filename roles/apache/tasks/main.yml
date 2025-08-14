@@ -1,26 +1,26 @@
     - name: Install and configure Apache
       block:
         - name: Install Apache
-          apt:
-            name: apache2
+          yum:
+            name: httpd
             state: present
             update_cache: yes
 
         - name: Enable Apache to start on boot
           systemd:
-              name: apache2
+              name: httpd
               enabled: yes
 
         - name: Ensure Apache is running
           service:
-              name: apache2
+              name: httpd
               state: started
 
       rescue:
           - debug:
-            msg: "Failed to install or start Apache"
+              msg: "Failed to install or start Apache"
 
       always:
           - debug:
-            msg: "Apache installation block finished"
+              msg: "Apache installation block finished"
       

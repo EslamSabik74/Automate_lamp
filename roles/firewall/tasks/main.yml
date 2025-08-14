@@ -1,0 +1,27 @@
+- name: Configure firewalld
+  block:
+    - name: Install firewalld
+      yum:
+        name: firewalld
+        state: present
+        update_cache: yes
+
+    - name: Ensure firewalld is running and enabled
+      service:
+        name: firewalld
+        state: started
+        enabled: yes
+
+    - name: Allow HTTP (80)
+      firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+        immediate: yes
+
+    - name: Allow HTTPS (443)
+      firewalld:
+        service: https
+        permanent: yes
+        state: enabled
+        immediate: yes

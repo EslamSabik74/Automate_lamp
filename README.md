@@ -13,3 +13,14 @@ The goal is to make server setup faster, consistent, and reusable.
 - Easily extendable for future technologies (e.g., PHP 8+, Docker, Kubernetes).
 
 ---
+## Project Structure
+Automate_lamp/
+│── ansible.cfg
+│── inventory/ # Inventory file with dev/prod environments
+│── group_vars/ # Variables for groups
+│── playbook.yml # Main playbook to run
+│── roles/
+│ ├── apache/
+│ ├── mysql/
+│ ├── php/
+
